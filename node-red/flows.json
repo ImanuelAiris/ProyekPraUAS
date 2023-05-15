@@ -1,0 +1,3226 @@
+[
+    {
+        "id": "a9e0e94775a79c8d",
+        "type": "tab",
+        "label": "Clothing Industry",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3d97484570004360",
+        "type": "inject",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sistem Potong",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "20c6afd6977cb712",
+                "471ffb31ec2f7757",
+                "3aa822c3aae1deba"
+            ]
+        ]
+    },
+    {
+        "id": "b2081d7cd536993e",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/tekanan",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 690,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "20c6afd6977cb712",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Tekanan",
+        "low": "0",
+        "high": "50",
+        "inte": "true",
+        "property": "payload",
+        "x": 460,
+        "y": 100,
+        "wires": [
+            [
+                "b2081d7cd536993e"
+            ]
+        ]
+    },
+    {
+        "id": "3aa822c3aae1deba",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Jarak",
+        "low": "0",
+        "high": "50",
+        "inte": "true",
+        "property": "payload",
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "61d35fbba9cac0e6"
+            ]
+        ]
+    },
+    {
+        "id": "471ffb31ec2f7757",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Tachometer",
+        "low": "0",
+        "high": "10000",
+        "inte": "true",
+        "property": "payload",
+        "x": 470,
+        "y": 340,
+        "wires": [
+            [
+                "8f205de2a7c8cece"
+            ]
+        ]
+    },
+    {
+        "id": "61d35fbba9cac0e6",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/jarak",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 680,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "8f205de2a7c8cece",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/tachometer",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 700,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d3bdcd0ddd6e348e",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/tekanan",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 160,
+        "wires": [
+            [
+                "57eff4f3d51d08fe",
+                "431ebc117a908529"
+            ]
+        ]
+    },
+    {
+        "id": "57eff4f3d51d08fe",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Tekanan",
+        "group": "fc30a2c59f60b00e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Tekanan",
+        "label": "bar",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 960,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "431ebc117a908529",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "651275aef8526c15",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/jarak",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 670,
+        "y": 280,
+        "wires": [
+            [
+                "42287df75ec5931e",
+                "c0273e08dc56ca11"
+            ]
+        ]
+    },
+    {
+        "id": "42287df75ec5931e",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Jarak",
+        "group": "fc30a2c59f60b00e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Jarak",
+        "label": "meter",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 950,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c0273e08dc56ca11",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "3b1c3a851ba3c9d8",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/tachometer",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "39297dbcc4e71bd4",
+                "b393a7b786ca2013"
+            ]
+        ]
+    },
+    {
+        "id": "39297dbcc4e71bd4",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Tachometer",
+        "group": "fc30a2c59f60b00e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Tachometer",
+        "label": "rpm",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "10000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 970,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b393a7b786ca2013",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2a2c1a25ba0602e7",
+        "type": "inject",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sistem Jahit",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1220,
+        "y": 220,
+        "wires": [
+            [
+                "87ea697e07c02a06",
+                "337ec1a94176816c",
+                "69d4211dd5be7d65"
+            ]
+        ]
+    },
+    {
+        "id": "a41b2dfa4f48633a",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/suhu",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1740,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "87ea697e07c02a06",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Suhu",
+        "low": "0",
+        "high": "250",
+        "inte": "true",
+        "property": "payload",
+        "x": 1490,
+        "y": 100,
+        "wires": [
+            [
+                "a41b2dfa4f48633a"
+            ]
+        ]
+    },
+    {
+        "id": "69d4211dd5be7d65",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Optik",
+        "low": "0",
+        "high": "10000",
+        "inte": "true",
+        "property": "payload",
+        "x": 1490,
+        "y": 220,
+        "wires": [
+            [
+                "ebf0d03e3ea5848d"
+            ]
+        ]
+    },
+    {
+        "id": "337ec1a94176816c",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Kelembaban",
+        "low": "0",
+        "high": "100",
+        "inte": "true",
+        "property": "payload",
+        "x": 1520,
+        "y": 340,
+        "wires": [
+            [
+                "334e60cc84739a46"
+            ]
+        ]
+    },
+    {
+        "id": "ebf0d03e3ea5848d",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/optik",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1740,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "334e60cc84739a46",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kelembaban",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1760,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "75d6e379a0729f9c",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/suhu",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1730,
+        "y": 160,
+        "wires": [
+            [
+                "533cb5a7d3368d26",
+                "65459472f0a02c46"
+            ]
+        ]
+    },
+    {
+        "id": "533cb5a7d3368d26",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Suhu",
+        "group": "af819934c657f612",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Suhu",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "250",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1990,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "65459472f0a02c46",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b02ad7e544883685",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/optik",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1730,
+        "y": 280,
+        "wires": [
+            [
+                "0f1d93feab1a68cb",
+                "32eb5d67a6e9b5aa"
+            ]
+        ]
+    },
+    {
+        "id": "0f1d93feab1a68cb",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Optik",
+        "group": "af819934c657f612",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Optik",
+        "label": "rpm/min",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1990,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "32eb5d67a6e9b5aa",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "dec2b0ec603f06da",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kelembaban",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1750,
+        "y": 400,
+        "wires": [
+            [
+                "a5629316af2346ac",
+                "de8ef3808376d58d"
+            ]
+        ]
+    },
+    {
+        "id": "a5629316af2346ac",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Kelembaban",
+        "group": "af819934c657f612",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Kelembaban",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 2020,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "de8ef3808376d58d",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b7f1ccfe36ae1969",
+        "type": "inject",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sistem Benang",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 2320,
+        "y": 220,
+        "wires": [
+            [
+                "8e7f922858a2244d",
+                "a8062dfcdffc1a61",
+                "bd2b57c5d4deed7b"
+            ]
+        ]
+    },
+    {
+        "id": "a6bdb785f69a3d25",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/penggerakan",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 2920,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8e7f922858a2244d",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Penggerakan",
+        "low": "0",
+        "high": "5000",
+        "inte": "true",
+        "property": "payload",
+        "x": 2620,
+        "y": 100,
+        "wires": [
+            [
+                "a6bdb785f69a3d25"
+            ]
+        ]
+    },
+    {
+        "id": "bd2b57c5d4deed7b",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Pencegah Getaran",
+        "low": "0",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 2640,
+        "y": 220,
+        "wires": [
+            [
+                "5a23621b912b6e26"
+            ]
+        ]
+    },
+    {
+        "id": "a8062dfcdffc1a61",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Getaran",
+        "low": "0",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 2600,
+        "y": 340,
+        "wires": [
+            [
+                "f972a1c81974d711"
+            ]
+        ]
+    },
+    {
+        "id": "5a23621b912b6e26",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/suara",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 2900,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f972a1c81974d711",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/getaran",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 2900,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "ee1f30f82ce6ab9b",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/penggerakan",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2920,
+        "y": 160,
+        "wires": [
+            [
+                "7650b5ad24b9f898",
+                "cc4943b4ba4edbd7"
+            ]
+        ]
+    },
+    {
+        "id": "7650b5ad24b9f898",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Penggerakan",
+        "group": "2a9846441f8e3dac",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Penggerakan",
+        "label": "sppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 3200,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "cc4943b4ba4edbd7",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3160,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b05cb7380c7f8080",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/suara",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2890,
+        "y": 280,
+        "wires": [
+            [
+                "7b54e5ae26f41764",
+                "ea85112d062040ae"
+            ]
+        ]
+    },
+    {
+        "id": "7b54e5ae26f41764",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Suara",
+        "group": "2a9846441f8e3dac",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Suara",
+        "label": "dB",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 3180,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ea85112d062040ae",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3160,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c6c2d988952309a1",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Pencegah Getaran",
+        "group": "2a9846441f8e3dac",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Pencegah Getaran",
+        "label": "meter",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 3220,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3124f7671643c760",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3160,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "562adb764a288168",
+        "type": "inject",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sistem Bahan",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 680,
+        "wires": [
+            [
+                "6a67990dc07f0a62",
+                "a6e9397adc6c24c7",
+                "7aca548f03644a58"
+            ]
+        ]
+    },
+    {
+        "id": "07414403898a8efc",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kapas",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 680,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6a67990dc07f0a62",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Kapas",
+        "low": "0",
+        "high": "30000",
+        "inte": "true",
+        "property": "payload",
+        "x": 460,
+        "y": 560,
+        "wires": [
+            [
+                "07414403898a8efc"
+            ]
+        ]
+    },
+    {
+        "id": "7aca548f03644a58",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Benang",
+        "low": "0",
+        "high": "70000",
+        "inte": "true",
+        "property": "payload",
+        "x": 460,
+        "y": 680,
+        "wires": [
+            [
+                "e6469ebd8a33a4a7"
+            ]
+        ]
+    },
+    {
+        "id": "a6e9397adc6c24c7",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Poliester",
+        "low": "0",
+        "high": "50000",
+        "inte": "true",
+        "property": "payload",
+        "x": 460,
+        "y": 800,
+        "wires": [
+            [
+                "bead912b269b76d0"
+            ]
+        ]
+    },
+    {
+        "id": "e6469ebd8a33a4a7",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/benang",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 680,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "bead912b269b76d0",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/poliester",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 690,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "aded290ecac0d1fb",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kapas",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 620,
+        "wires": [
+            [
+                "373552d56c4c833a",
+                "49e62c78b7458fa2"
+            ]
+        ]
+    },
+    {
+        "id": "373552d56c4c833a",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Kapas",
+        "group": "4f35659fe1267562",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Kapas",
+        "label": "kg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 960,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "49e62c78b7458fa2",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "365645b810493cd5",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/benang",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 740,
+        "wires": [
+            [
+                "a7dd8472d291c151",
+                "0801d8c6e5010546"
+            ]
+        ]
+    },
+    {
+        "id": "a7dd8472d291c151",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Benang",
+        "group": "4f35659fe1267562",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Benang",
+        "label": "meter",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "70000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 960,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "0801d8c6e5010546",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "96d655998a058579",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/poliester",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 860,
+        "wires": [
+            [
+                "b9420c4291f55b8f",
+                "94a57630ab949aa2"
+            ]
+        ]
+    },
+    {
+        "id": "b9420c4291f55b8f",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Poliester",
+        "group": "4f35659fe1267562",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Poliester",
+        "label": "kg",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "50000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 960,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "94a57630ab949aa2",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "1956eb3fc0de6916",
+        "type": "inject",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sistem Produksi Kain",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1200,
+        "y": 680,
+        "wires": [
+            [
+                "7e91363b37f791ce",
+                "1e0cc1c8c53a7f85",
+                "075f7e4c948a8ba0"
+            ]
+        ]
+    },
+    {
+        "id": "23206ffa4879f63b",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kain",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1730,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "7e91363b37f791ce",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Kain",
+        "low": "0",
+        "high": "10000",
+        "inte": "true",
+        "property": "payload",
+        "x": 1490,
+        "y": 560,
+        "wires": [
+            [
+                "23206ffa4879f63b"
+            ]
+        ]
+    },
+    {
+        "id": "075f7e4c948a8ba0",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Pemintalan",
+        "low": "0",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 1510,
+        "y": 680,
+        "wires": [
+            [
+                "27e4a5f4975faae0"
+            ]
+        ]
+    },
+    {
+        "id": "1e0cc1c8c53a7f85",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Pencelupan",
+        "low": "0",
+        "high": "10",
+        "inte": "true",
+        "property": "payload",
+        "x": 1510,
+        "y": 800,
+        "wires": [
+            [
+                "981ea04d4cd617ed"
+            ]
+        ]
+    },
+    {
+        "id": "27e4a5f4975faae0",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/pemintalan",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1750,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "981ea04d4cd617ed",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/pencelupan",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1760,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "2130beaa2afc355e",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kain",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1730,
+        "y": 620,
+        "wires": [
+            [
+                "72c9c6f909b90333",
+                "45d5b3b41b6db3bb"
+            ]
+        ]
+    },
+    {
+        "id": "72c9c6f909b90333",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Bahan",
+        "group": "55bfbdc840fa9cb8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Bahan",
+        "label": "kg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 2000,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "45d5b3b41b6db3bb",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "4cae10652bea4f92",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/pemintalan",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1750,
+        "y": 740,
+        "wires": [
+            [
+                "7bce37b5b1933a46",
+                "ef0d45b48c58675d"
+            ]
+        ]
+    },
+    {
+        "id": "7bce37b5b1933a46",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Pemintalan",
+        "group": "55bfbdc840fa9cb8",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Pemintalan",
+        "label": "m/min",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 2010,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "ef0d45b48c58675d",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 18",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "72cb3d19690b7038",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/pencelupan",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1750,
+        "y": 860,
+        "wires": [
+            [
+                "df4a8b7d586d56fa",
+                "a7d6be4f40c558c3"
+            ]
+        ]
+    },
+    {
+        "id": "df4a8b7d586d56fa",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Pencelupan",
+        "group": "55bfbdc840fa9cb8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Pencelupan",
+        "label": "celupan",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "10",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 2010,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "a7d6be4f40c558c3",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 19",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "7833e6684991a0b8",
+        "type": "inject",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sistem Ketahanan",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 2310,
+        "y": 680,
+        "wires": [
+            [
+                "006157a209a17f27",
+                "52345159532fcee1",
+                "6e69fee5e26382af"
+            ]
+        ]
+    },
+    {
+        "id": "fde9be766d1d6443",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/tarik",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 2890,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "006157a209a17f27",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Tarik",
+        "low": "0",
+        "high": "225",
+        "inte": "true",
+        "property": "payload",
+        "x": 2590,
+        "y": 560,
+        "wires": [
+            [
+                "fde9be766d1d6443"
+            ]
+        ]
+    },
+    {
+        "id": "6e69fee5e26382af",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Spektrofotometer",
+        "low": "0",
+        "high": "100",
+        "inte": "true",
+        "property": "payload",
+        "x": 2630,
+        "y": 680,
+        "wires": [
+            [
+                "0f3da2570ced4411"
+            ]
+        ]
+    },
+    {
+        "id": "52345159532fcee1",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Pemulihan Kerutan",
+        "low": "1",
+        "high": "600",
+        "inte": "true",
+        "property": "payload",
+        "x": 2640,
+        "y": 800,
+        "wires": [
+            [
+                "95a9c14e10f2bfae"
+            ]
+        ]
+    },
+    {
+        "id": "0f3da2570ced4411",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/spektrofotometer",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 2930,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "95a9c14e10f2bfae",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kerutan",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 2900,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "5064cb23ff313a04",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/tarik",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2890,
+        "y": 620,
+        "wires": [
+            [
+                "3ac72ff62b9e73c2",
+                "205eae5aaa92d5b0"
+            ]
+        ]
+    },
+    {
+        "id": "3ac72ff62b9e73c2",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Tarik",
+        "group": "3e25c7aef4e97321",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Tarik",
+        "label": "N",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "225",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 3170,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "205eae5aaa92d5b0",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 20",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3160,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "30693e17dfe44905",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/spektrofotometer",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2930,
+        "y": 740,
+        "wires": [
+            [
+                "a06c5f5bfd8425e7",
+                "7cc8bc7f172536e7"
+            ]
+        ]
+    },
+    {
+        "id": "a06c5f5bfd8425e7",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Spektrofotometer",
+        "group": "3e25c7aef4e97321",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Spektrofotometer",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 3210,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "7cc8bc7f172536e7",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 21",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3160,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "0ebd7620b8e83fda",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kerutan",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2900,
+        "y": 860,
+        "wires": [
+            [
+                "77bb12e1f777d9f9",
+                "a3c23797176fe702"
+            ]
+        ]
+    },
+    {
+        "id": "77bb12e1f777d9f9",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Pemulihan Kerutan",
+        "group": "3e25c7aef4e97321",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Pemulihan Kerutan",
+        "label": "detik",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "600",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 3220,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "a3c23797176fe702",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 22",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3160,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "a7392e1507cc534f",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/getaran",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2900,
+        "y": 400,
+        "wires": [
+            [
+                "c6c2d988952309a1",
+                "3124f7671643c760"
+            ]
+        ]
+    },
+    {
+        "id": "9e123082b0a16a5a",
+        "type": "inject",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sistem Quality Check",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 1140,
+        "wires": [
+            [
+                "3d088b576d1d1668",
+                "b249658e866a7a97",
+                "7fd6f2ae7edfdb87"
+            ]
+        ]
+    },
+    {
+        "id": "422783351f361d38",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/label",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 680,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "3d088b576d1d1668",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Label",
+        "low": "0.001",
+        "high": "1.5",
+        "inte": "true",
+        "property": "payload",
+        "x": 450,
+        "y": 1020,
+        "wires": [
+            [
+                "422783351f361d38"
+            ]
+        ]
+    },
+    {
+        "id": "7fd6f2ae7edfdb87",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Warna",
+        "low": "380",
+        "high": "780",
+        "inte": "true",
+        "property": "payload",
+        "x": 460,
+        "y": 1140,
+        "wires": [
+            [
+                "13e815e18c8d972e"
+            ]
+        ]
+    },
+    {
+        "id": "b249658e866a7a97",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Deteksi Cacat",
+        "low": "0",
+        "high": "50",
+        "inte": "true",
+        "property": "payload",
+        "x": 480,
+        "y": 1260,
+        "wires": [
+            [
+                "663d4af97bf0e3fe"
+            ]
+        ]
+    },
+    {
+        "id": "13e815e18c8d972e",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/warna",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 680,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "663d4af97bf0e3fe",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/cacat",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 680,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "ebb8e0c10c0506b7",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/label",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 670,
+        "y": 1080,
+        "wires": [
+            [
+                "6bfb918edc04b0ae",
+                "14250333e450d854"
+            ]
+        ]
+    },
+    {
+        "id": "6bfb918edc04b0ae",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Label",
+        "group": "ecb746094b9bcae1",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Label",
+        "label": "",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 950,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "14250333e450d854",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 23",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "43f462100aac2909",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/warna",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 1200,
+        "wires": [
+            [
+                "f0a1e151ca2ac50a",
+                "230331d54876bfea"
+            ]
+        ]
+    },
+    {
+        "id": "f0a1e151ca2ac50a",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Warna",
+        "group": "ecb746094b9bcae1",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Warna",
+        "label": "nm",
+        "format": "{{value}}",
+        "min": "380",
+        "max": "780",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 960,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "230331d54876bfea",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 24",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "50e436a96d4bf168",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/cacat",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 670,
+        "y": 1320,
+        "wires": [
+            [
+                "7be1c8be11e16132",
+                "af6817ae428b6395"
+            ]
+        ]
+    },
+    {
+        "id": "7be1c8be11e16132",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Deteksi Cacat",
+        "group": "ecb746094b9bcae1",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Deteksi Cacat",
+        "label": "cacat",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 980,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "af6817ae428b6395",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 25",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "d619164fd48285ba",
+        "type": "inject",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sistem Penghalusan",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1200,
+        "y": 1140,
+        "wires": [
+            [
+                "6db24fef591e4a74",
+                "c4d884bc04d8dadd",
+                "527c19f3ef26fece"
+            ]
+        ]
+    },
+    {
+        "id": "07d2b6a559d4fa89",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/panas",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1740,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "6db24fef591e4a74",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Panas",
+        "low": "0",
+        "high": "250",
+        "inte": "true",
+        "property": "payload",
+        "x": 1500,
+        "y": 1020,
+        "wires": [
+            [
+                "07d2b6a559d4fa89"
+            ]
+        ]
+    },
+    {
+        "id": "527c19f3ef26fece",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Penghalus",
+        "low": "0",
+        "high": "100",
+        "inte": "true",
+        "property": "payload",
+        "x": 1510,
+        "y": 1140,
+        "wires": [
+            [
+                "c79382a574d96c27"
+            ]
+        ]
+    },
+    {
+        "id": "c4d884bc04d8dadd",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Kimia",
+        "low": "0",
+        "high": "20",
+        "inte": "true",
+        "property": "payload",
+        "x": 1490,
+        "y": 1260,
+        "wires": [
+            [
+                "6dd7275745b1f193"
+            ]
+        ]
+    },
+    {
+        "id": "c79382a574d96c27",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/penghalus",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1750,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "6dd7275745b1f193",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kimia",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 1740,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "7037ac580ecece34",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/panas",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1740,
+        "y": 1080,
+        "wires": [
+            [
+                "ba108b7d7d471b29",
+                "3c9a6c2965ddb3da"
+            ]
+        ]
+    },
+    {
+        "id": "ba108b7d7d471b29",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Panas",
+        "group": "3a21c8e8d7ec8efd",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Panas",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "250",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 2000,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "3c9a6c2965ddb3da",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 26",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "a25b6ad06a850df8",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/penghalus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1750,
+        "y": 1200,
+        "wires": [
+            [
+                "3c45b3f3ceeb7a77",
+                "6664c1b96bda7181"
+            ]
+        ]
+    },
+    {
+        "id": "3c45b3f3ceeb7a77",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Penghalus",
+        "group": "3a21c8e8d7ec8efd",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Penghalus",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 2010,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "6664c1b96bda7181",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 27",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "67dea14d125412da",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kimia",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1730,
+        "y": 1320,
+        "wires": [
+            [
+                "146d691691d217f3",
+                "5850d59617b3f2d2"
+            ]
+        ]
+    },
+    {
+        "id": "146d691691d217f3",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Kimia",
+        "group": "3a21c8e8d7ec8efd",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Kimia",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "20",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1990,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "5850d59617b3f2d2",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 28",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "7cdbd68eb8fd1c5a",
+        "type": "inject",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sistem Pembersihan",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 2300,
+        "y": 1140,
+        "wires": [
+            [
+                "91a6d6e054cea6a7",
+                "afa84962a1c0d814",
+                "786153fbb5fb81c8"
+            ]
+        ]
+    },
+    {
+        "id": "e2e3d06efb8bc05c",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/bau",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 2890,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "91a6d6e054cea6a7",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Deteksi Bau",
+        "low": "100",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 2620,
+        "y": 1020,
+        "wires": [
+            [
+                "e2e3d06efb8bc05c"
+            ]
+        ]
+    },
+    {
+        "id": "afa84962a1c0d814",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Deteksi Kotoran",
+        "low": "0",
+        "high": "10",
+        "inte": "true",
+        "property": "payload",
+        "x": 2630,
+        "y": 1260,
+        "wires": [
+            [
+                "c9d9f21150256de5"
+            ]
+        ]
+    },
+    {
+        "id": "c9d9f21150256de5",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kotoran",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 2900,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "926798eb38588643",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/bau",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2890,
+        "y": 1080,
+        "wires": [
+            [
+                "6eb0435c4ee68edc",
+                "5c5e45ae89b53a38"
+            ]
+        ]
+    },
+    {
+        "id": "6eb0435c4ee68edc",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Deteksi Bau",
+        "group": "71fc87b8d162fa84",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Deteksi Bau",
+        "label": "sppm",
+        "format": "{{value}}",
+        "min": "100",
+        "max": "10000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 3200,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "5c5e45ae89b53a38",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 29",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3160,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "783b185b83ad1c39",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Deteksi Kotoran",
+        "group": "71fc87b8d162fa84",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Deteksi Kotoran",
+        "label": "kotoran",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 3210,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "c184796b7f8fdcdf",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 31",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3160,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "b73859f3c5acddcc",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/kotoran",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2900,
+        "y": 1320,
+        "wires": [
+            [
+                "783b185b83ad1c39",
+                "c184796b7f8fdcdf"
+            ]
+        ]
+    },
+    {
+        "id": "786153fbb5fb81c8",
+        "type": "random",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Softener",
+        "low": "0",
+        "high": "1000",
+        "inte": "true",
+        "property": "payload",
+        "x": 2600,
+        "y": 1140,
+        "wires": [
+            [
+                "8235b546944388ef"
+            ]
+        ]
+    },
+    {
+        "id": "8235b546944388ef",
+        "type": "mqtt out",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/softener",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "727660ac399984c1",
+        "x": 2910,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "f4b1ecb7e7565950",
+        "type": "mqtt in",
+        "z": "a9e0e94775a79c8d",
+        "name": "",
+        "topic": "ci/softener",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "02cfe6d0d7982aee",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2900,
+        "y": 1200,
+        "wires": [
+            [
+                "7874481670bba286",
+                "4f3820c4082a9438"
+            ]
+        ]
+    },
+    {
+        "id": "7874481670bba286",
+        "type": "ui_gauge",
+        "z": "a9e0e94775a79c8d",
+        "name": "Sensor Softener",
+        "group": "71fc87b8d162fa84",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Sensor Softener",
+        "label": "kg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 3180,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "4f3820c4082a9438",
+        "type": "debug",
+        "z": "a9e0e94775a79c8d",
+        "name": "debug 32",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3160,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "ebe182ca788bb7f0",
+        "type": "ui_spacer",
+        "z": "a9e0e94775a79c8d",
+        "name": "spacer",
+        "group": "941891c8d43954f7",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "2b3fe5c6a2590015",
+        "type": "ui_spacer",
+        "z": "a9e0e94775a79c8d",
+        "name": "spacer",
+        "group": "a8d3977f4ff87849",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d50e256668966c46",
+        "type": "ui_spacer",
+        "z": "a9e0e94775a79c8d",
+        "name": "spacer",
+        "group": "604d1c47ae90fb9a",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "727660ac399984c1",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "02cfe6d0d7982aee",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "fc30a2c59f60b00e",
+        "type": "ui_group",
+        "name": "Sistem Potong",
+        "tab": "ef34bd435df27b52",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "af819934c657f612",
+        "type": "ui_group",
+        "name": "Sistem Jahit",
+        "tab": "ef34bd435df27b52",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2a9846441f8e3dac",
+        "type": "ui_group",
+        "name": "Sistem Benang",
+        "tab": "ef34bd435df27b52",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4f35659fe1267562",
+        "type": "ui_group",
+        "name": "Sistem Bahan",
+        "tab": "d5751cc112284da0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "55bfbdc840fa9cb8",
+        "type": "ui_group",
+        "name": "Sistem Produksi Kain",
+        "tab": "d5751cc112284da0",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3e25c7aef4e97321",
+        "type": "ui_group",
+        "name": "Sistem Tes Ketahanan",
+        "tab": "d5751cc112284da0",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ecb746094b9bcae1",
+        "type": "ui_group",
+        "name": "Sistem Quality Check",
+        "tab": "ab4e4d1e3d15cb2e",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3a21c8e8d7ec8efd",
+        "type": "ui_group",
+        "name": "Sistem Penghalusan",
+        "tab": "ab4e4d1e3d15cb2e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "71fc87b8d162fa84",
+        "type": "ui_group",
+        "name": "Sistem Pembersihan",
+        "tab": "ab4e4d1e3d15cb2e",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ef34bd435df27b52",
+        "type": "ui_tab",
+        "name": "Smart Tailoring System",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d5751cc112284da0",
+        "type": "ui_tab",
+        "name": "Smart Textiles System",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ab4e4d1e3d15cb2e",
+        "type": "ui_tab",
+        "name": "Finishing System",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
