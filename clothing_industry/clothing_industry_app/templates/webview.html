@@ -1,0 +1,220 @@
+<html>
+  <head>
+    <title>Clothing Industry</title>
+    <meta http-equiv="refresh" content="2">
+  </head>
+  <body>
+    <h1>Clothing Industry</h1>
+    <table border='1'>
+      <tr>
+        <th>Pakaian Diproduksi (piece)</th>
+      </tr>
+      <tr>
+        {% for view in views_act13 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <h2>Tailoring System</h2>
+    <h3>Cutting System</h3>
+    <!-- {{views}} -->
+    <table border='1'>
+      <tr>
+        <th>Sensor Tekanan (bar)</th>
+        <th>Sensor Jarak (meter)</th>
+        <th>Sensor Tachometer (rpm)</th>
+        <th>Gunting (meter)</th>
+      </tr>
+      <tr>
+        {% for view in views1 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+
+        {% for view in views_act1 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <h3>Sew System</h3> 
+    <table border='1'>
+      <tr>
+        <th>Sensor Suhu (°C)</th>
+        <th>Sensor Optik (rpm/min)</th>
+        <th>Sensor Kelembaban (%)</th>
+        <th>Jahitan</th>
+      </tr>
+      <tr>
+        {% for view in views2 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+        {% for view in views_act2 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+    
+    <h3>Thread System</h3> 
+    <table border='1'>
+      <tr>
+        <th>Sensor Penggerakan (sppm)</th>
+        <th>Sensor Suara (dB)</th>
+        <th>Sensor Pencegah Getaran (meter)</th>
+        <th>Benang (meter)</th>
+      </tr>
+      <tr>
+        {% for view in views3 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+        {% for view in views_act3 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <table border='1'>
+      <tr>
+        <th>Hasil Produksi Baju (piece)</th>
+      </tr>
+      <tr>
+        {% for view in views_act10 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <h2>Textiles System</h2>
+    <h3>Material System</h3> 
+    <table border='1'>
+      <tr>
+        <th>Sensor Kapas (kg)</th>
+        <th>Sensor Benang (meter)</th>
+        <th>Sensor Poliester (kg)</th>
+        <th>Bahan (kg)</th>
+      </tr>
+      <tr>
+        {% for view in views4 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+        {% for view in views_act4 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <h3>Cloth Production System</h3> 
+    <table border='1'>
+      <tr>
+        <th>Sensor Bahan (kg)</th>
+        <th>Sensor Sensor Pemintalan (m/min)</th>
+        <th>Sensor Pencelupan (celupan)</th>
+        <th>Kain (kg)</th>
+      </tr>
+      <tr>
+        {% for view in views5 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+        {% for view in views_act5 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <h3>Resilience Test System</h3> 
+    <table border='1'>
+      <tr>
+        <th>Sensor Tarik (N)</th>
+        <th>Sensor Spektrofotometer (%)</th>
+        <th>Sensor Pemulihan Kerutan (detik)</th>
+        <th>Ketahanan (%)</th>
+      </tr>
+      <tr>
+        {% for view in views6 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+        {% for view in views_act6 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <table border='1'>
+      <tr>
+        <th>Hasil Produksi Bahan (ton)</th>
+      </tr>
+      <tr>
+        {% for view in views_act11 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <h2>Finishing System</h2> 
+    <h3>Quality Check System</h3> 
+    <table border='1'>
+      <tr>
+        <th>Sensor Label </th>
+        <th>Sensor Warna (nm)</th>
+        <th>Sensor Deteksi Cacat (cacat)</th>
+        <th>Kualitas (%)</th>
+      </tr>
+      <tr>
+        {% for view in views7 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+        {% for view in views_act7 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <h3>Refinement System</h3> 
+    <table border='1'>
+      <tr>
+        <th>Sensor Panas (°C)</th>
+        <th>Sensor Penghalus (%)</th>
+        <th>Sensor Kimia (ppm)</th>
+        <th>Kehalusan (%)</th>
+      </tr>
+      <tr>
+        {% for view in views8 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+        {% for view in views_act8 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <h3>Cleaning System</h3> 
+    <table border='1'>
+      <tr>
+        <th>Sensor Deteksi Bau (°C)</th>
+        <th>Sensor Softener (kg)</th>
+        <th>Sensor Deteksi Kotoran (kotoran)</th>
+        <th>Kebersihan (%)</th>
+      </tr>
+      <tr>
+        {% for view in views9 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+        {% for view in views_act9 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <table border='1'>
+      <tr>
+        <th>Pakaian Lulus Uji (piece)</th>
+      </tr>
+      <tr>
+        {% for view in views_act12 %}
+        <td align="center">{{ view.value }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+  </body>
+</html>
